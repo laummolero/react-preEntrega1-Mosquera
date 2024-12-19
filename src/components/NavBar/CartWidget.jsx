@@ -7,7 +7,6 @@ const CartWidget = () => {
         src="https://cdn-icons-png.flaticon.com/512/263/263142.png"
         alt="Cart Icon"
       />
-      <p>1</p>
     </div>
   );
 };

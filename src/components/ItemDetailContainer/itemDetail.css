@@ -1,0 +1,55 @@
+.main-image {
+  max-width: 400px; /* o el ancho máximo que prefieras */
+  margin: 0 auto;
+}
+
+.main-image img {
+  width: 100%;
+  height: auto;
+  max-height: 600px; /* o la altura máxima que prefieras */
+  object-fit: contain; /* esto mantiene la proporción de la imagen */
+}
+
+.item-detail {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.images-detail-container {
+  flex: 1;
+}
+
+.text-detail-container {
+  flex: 1;
+}
+
+.title-detail {
+  font-size: 40px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  color: rgb(29, 11, 55);
+  margin-bottom: 10px;
+}
+
+.text-detail {
+  font-size: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.text-detail:last-child {
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  margin-top: 20px;
+}
+
+.text-detail-container {
+  padding: 10px;
+  text-wrap: wrap;
+}
