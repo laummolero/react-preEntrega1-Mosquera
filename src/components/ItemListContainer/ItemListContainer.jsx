@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { getProducts } from "../../data/data.js";
 import ItemList from "./ItemList.jsx";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader/Loader.jsx";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import db from "../../db/db.js";
 import "./itemlistcontainer.css";
 
 const ItemListContainer = ({ greeting }) => {
@@ -10,25 +11,41 @@ const ItemListContainer = ({ greeting }) => {
   const [loading, setLoading] = useState(false);
   const { idCategory } = useParams();
 
+  const collectionName = collection(db, "products");
+  const getProducts = async () => {
+    try {
+      const dataDb = await getDocs(collectionName);
+      const data = dataDb.docs.map((productDb) => {
+        return { id: productDb.id, ...productDb.data() };
+      });
+      setProducts(data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+  const getProductsByCategory = async () => {
+    try {
+      const q = query(collectionName, where("category", "==", idCategory));
+      const dataDb = await getDocs(q);
+      const data = dataDb.docs.map((productDb) => {
+        return { id: productDb.id, ...productDb.data() };
+      });
+      setProducts(data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
   useEffect(() => {
     setLoading(true);
-    getProducts()
-      .then((data) => {
-        if (idCategory) {
-          const productsFilter = data.filter(
-            (product) => product.category === idCategory
-          );
-          setProducts(productsFilter);
-        } else {
-          setProducts(data);
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    if (idCategory) {
+      getProductsByCategory();
+    } else {
+      getProducts();
+    }
   }, [idCategory]);
 
   return (
