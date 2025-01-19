@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
-import CartWidget from "./components/NavBar/CartWidget";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import Error from "./components/Error/Error";
