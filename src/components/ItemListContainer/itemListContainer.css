@@ -17,6 +17,9 @@
   gap: 2rem;
   padding: 1rem;
 }
+.itemlist a {
+  text-decoration: none;
+}
 .item {
   background: white;
   border-radius: 8px;

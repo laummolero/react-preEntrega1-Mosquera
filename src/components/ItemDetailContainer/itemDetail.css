@@ -1,13 +1,13 @@
 .main-image {
-  max-width: 400px; /* o el ancho máximo que prefieras */
+  max-width: 400px;
   margin: 0 auto;
 }
 
 .main-image img {
   width: 100%;
   height: auto;
-  max-height: 600px; /* o la altura máxima que prefieras */
-  object-fit: contain; /* esto mantiene la proporción de la imagen */
+  max-height: 600px;
+  object-fit: contain;
 }
 
 .item-detail {

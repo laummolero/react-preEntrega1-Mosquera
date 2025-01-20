@@ -18,7 +18,7 @@
   color: white;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  margin-right: auto;
 }
 
 .navbar button:hover {
@@ -26,21 +26,20 @@
 }
 
 .categories {
-  width: 33.3%;
-  height: 100%;
   display: flex;
-  justify-content: space-around left;
+  justify-content: flex-start;
   align-items: center;
   list-style: none;
   padding: 0;
   margin: 0;
+  position: absolute;
+  left: 120px;
 }
 
 .category {
   color: #ffffff;
   text-decoration: none;
   padding: 8px 16px;
-  transition: color 0.3s;
 }
 
 .category:hover {
@@ -55,12 +54,14 @@
 }
 
 .brand {
-  width: 33.3%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   text-decoration: none;
+  height: 100%;
 }
 
 .icon-brand {
@@ -76,38 +77,63 @@
   margin: 0;
 }
 
+.cartwidget {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.cartwidget img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.number-cartqidget {
+  color: #ffffff;
+  margin: 0;
+}
+
 .primary-font-color {
   color: #ffffff;
 }
 
-/* Media queries para responsividad */
 @media (max-width: 768px) {
   .navbar {
     flex-wrap: wrap;
     height: auto;
     padding: 10px;
+    justify-content: space-between;
   }
 
   .categories {
+    position: relative;
+    left: 0;
     width: 100%;
     order: 2;
+    justify-content: center;
     flex-wrap: wrap;
     padding: 10px 0;
   }
 
   .brand {
-    width: 50%;
+    position: relative;
+    left: 0;
+    transform: none;
     order: 1;
+    flex: 1;
+    justify-content: center;
   }
 
   .cartwidget {
-    width: auto;
     order: 1;
+    margin: 0;
   }
 
   .navbar button {
-    order: 3;
-    margin-top: 10px;
+    order: 1;
+    margin: 0;
   }
 }
 
